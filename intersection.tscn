@@ -1,0 +1,86 @@
+[gd_scene format=3 uid="uid://c7l64xnlrol55"]
+
+[ext_resource type="PackedScene" uid="uid://b70aquem0vpfy" path="res://3D models/gtr.glb" id="1_p2d6a"]
+[ext_resource type="PackedScene" uid="uid://ceuoi8i1j473b" path="res://3D models/road.glb" id="2_0mcfx"]
+[ext_resource type="PackedScene" uid="uid://cbqmdtagdhuss" path="res://3D models/f1-pink.glb" id="3_qrk37"]
+[ext_resource type="PackedScene" uid="uid://cqonpe4ga0aeg" path="res://3D models/f1-blue.glb" id="4_xauj5"]
+[ext_resource type="Script" uid="uid://dm782157woc0q" path="res://3D models/car.gd" id="5_qrk37"]
+
+[sub_resource type="GDScript" id="GDScript_oqynk"]
+script/source = "extends Node3D
+
+@export var car_scene: PackedScene # Drag your Car.tscn here in the Inspector
+@export var spawn_interval: float = 1.5 # Time in seconds between spawns
+@export var speed_variation: float = 2.0
+
+var timer: float = 0.0
+
+func _process(delta: float):
+	timer += delta
+	if timer >= spawn_interval:
+		timer = 0.0
+		spawn_car()
+
+func spawn_car():
+	if not car_scene:
+		print(\"Error: Car scene not assigned in spawner!\")
+		return
+		
+	var car = car_scene.instantiate()
+	
+	# Spawn at the spawner's position (with a tiny random offset across the lane)
+	var random_offset_x = randf_range(-0.5, 0.5)
+	car.position = global_position + Vector3(random_offset_x, 0, 0)
+	
+	# Optional: randomize individual car speeds slightly
+	if \"speed\" in car:
+		car.speed += randf_range(-speed_variation, speed_variation)
+		
+	# Add the car to the main scene tree
+	get_tree().current_scene.add_child(car)
+"
+
+[node name="Node3D" type="Node3D" unique_id=470058476]
+transform = Transform3D(1, 0, 0, 0, 1, 1.7484555e-07, 0, -1.7484555e-07, 1, 0, 0, 0)
+
+[node name="gtr" parent="." unique_id=337143250 instance=ExtResource("1_p2d6a")]
+transform = Transform3D(4.1, 0, 0, 0, 4.1, 0, 0, 0, 4.1, -40.330627, 0.047816873, -21.059422)
+
+[node name="road" parent="." unique_id=519333134 instance=ExtResource("2_0mcfx")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.2274914, -0.34749734, -3.9240932)
+
+[node name="f1-pink" parent="." unique_id=947571166 instance=ExtResource("3_qrk37")]
+transform = Transform3D(0.021989632, 0, 1.5998489, 0, 1.6, 0, -1.5998489, 0, 0.021989632, 2.001092, 1.1920929e-07, -52.79489)
+
+[node name="f1-blue" parent="." unique_id=1351360830 instance=ExtResource("4_xauj5")]
+transform = Transform3D(1.6, 0, 0, 0, 1.6, 0, 0, 0, 1.6, 39.80668, 0, -14.942368)
+
+[node name="XRCamera3D" type="XRCamera3D" parent="." unique_id=485089829]
+transform = Transform3D(-0.54773855, -0.1298876, 0.8265057, -0.026904127, 0.9900992, 0.13776697, -0.83621687, 0.053223863, -0.54581004, 27.301903, 22.162983, -32.370068)
+
+[node name="XRCamera3D2" type="XRCamera3D" parent="." unique_id=1133324452]
+transform = Transform3D(0.4857241, 0.13340186, -0.86387277, -0.026904147, 0.9900993, 0.13776693, 0.87369806, -0.043674953, 0.48450413, -16.390865, 22.162983, 1.8721333)
+
+[node name="road2" parent="." unique_id=143303935 instance=ExtResource("2_0mcfx")]
+transform = Transform3D(1.0139393, 0, 0, 0, 1, 0, 0, 0, 1, -8.709488, -0.5948286, -5.018627)
+script = ExtResource("5_qrk37")
+
+[node name="road3" parent="." unique_id=1661383674 instance=ExtResource("2_0mcfx")]
+transform = Transform3D(1.0139393, 0, 0, 0, 1, 0, 0, 0, 1, 19.071499, -0.5948286, -3.8425274)
+
+[node name="TrafficSpawner" type="Node3D" parent="." unique_id=2081246649]
+transform = Transform3D(-1.2501098, 0, 3.9047687, 5.684342e-14, 4.099999, -1.4210855e-14, -3.9047687, -5.684342e-14, -1.2501098, -64.12804, 0.047815118, -11.020882)
+script = SubResource("GDScript_oqynk")
+car_scene = ExtResource("4_xauj5")
+
+[node name="TrafficSpawner2" type="Node3D" parent="." unique_id=1368490628]
+transform = Transform3D(-1.2501098, 0, 3.9047687, 5.684342e-14, 4.099999, -1.4210855e-14, -3.9047687, -5.684342e-14, -1.2501098, 74.57652, 0.047816873, -21.059422)
+script = SubResource("GDScript_oqynk")
+
+[node name="TrafficSpawner3" type="Node3D" parent="." unique_id=1493925507]
+transform = Transform3D(-1.2501098, 0, 3.9047687, 5.684342e-14, 4.099999, -1.4210855e-14, -3.9047687, -5.684342e-14, -1.2501098, 1.5183029, 0.04782819, -85.77072)
+script = SubResource("GDScript_oqynk")
+
+[node name="TrafficSpawner4" type="Node3D" parent="." unique_id=1766217512]
+transform = Transform3D(-1.2501098, 0, 3.9047687, 5.684342e-14, 4.099999, -1.4210855e-14, -3.9047687, -5.684342e-14, -1.2501098, 12.868124, 0.047802564, 60.7778)
+script = SubResource("GDScript_oqynk")
