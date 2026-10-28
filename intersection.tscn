@@ -9,8 +9,10 @@
 [ext_resource type="Texture2D" uid="uid://crdm4kcpcqg70" path="res://3D models/1000066145.png" id="7_w7lpe"]
 [ext_resource type="Texture2D" uid="uid://c3372fflx13sd" path="res://3D models/1000066146.png" id="8_rbl70"]
 [ext_resource type="FontFile" uid="uid://shww7qk3p2dn" path="res://3D models/Satoshi-Regular.otf" id="8_w7lpe"]
-[ext_resource type="Texture2D" uid="uid://vmcegm5vblvn" path="res://3D models/1000066136.png" id="9_qqfow"]
 [ext_resource type="Texture2D" uid="uid://ronh4wtoxn5v" path="res://3D models/1000066153.png" id="9_rbl70"]
+[ext_resource type="FontFile" uid="uid://daesv371nxomx" path="res://3D models/neuemachina-ultrabold.otf" id="11_t7sun"]
+[ext_resource type="Texture2D" uid="uid://dw7ot27n0stnn" path="res://3D models/circle-32.png" id="12_t7sun"]
+[ext_resource type="PackedScene" uid="uid://cohvm0j4xrox3" path="res://3D models/TTd.glb" id="13_gik3a"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5yqap"]
 bg_color = Color(0.1254902, 0.15294118, 0.18431373, 1)
@@ -57,11 +59,13 @@ expand_mode = 1
 
 [node name="Sprite3D" type="Sprite3D" parent="TextureRect" unique_id=717277028]
 transform = Transform3D(-0.83546257, 0, -0.5495473, 0, 1, 0, 0.5495473, 0, -0.83546257, -96.03461, 24.597534, -57.59308)
+visible = false
 pixel_size = 0.1
 texture = ExtResource("2_t7sun")
 
 [node name="Sprite3D2" type="Sprite3D" parent="TextureRect" unique_id=290452903]
 transform = Transform3D(-0.83546257, 0, -0.5495473, 0, 1, 0, 0.5495473, 0, -0.83546257, 49.17868, 24.597534, 91.32413)
+visible = false
 pixel_size = 0.1
 texture = ExtResource("1_yhn40")
 
@@ -77,13 +81,40 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.545309, -1.389945, 8.81005
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.1238804, -1.7153234, 7.304161)
 
 [node name="f1-blue" parent="." unique_id=1351360830 instance=ExtResource("4_xauj5")]
-transform = Transform3D(0.057578832, 0, -1.799079, 0, 1.8000002, 0, 1.799079, 0, 0.057578832, -1.6735849, 0, -44.561954)
+transform = Transform3D(0.031988245, 0, -0.99948823, 0, 1, 0, 0.99948823, 0, 0.031988245, -1.6735849, 0.43307495, -44.561954)
+
+[node name="f1-blue4" parent="." unique_id=895787493 instance=ExtResource("4_xauj5")]
+transform = Transform3D(0.01657394, 0, 0.99986273, 0, 1, 0, -0.99986273, 0, 0.01657394, 7.9513845, 0, -57.986267)
+
+[node name="f1-blue3" parent="." unique_id=1115019906 instance=ExtResource("4_xauj5")]
+transform = Transform3D(0.031988245, 0, -0.99948823, 0, 1, 0, 0.99948823, 0, 0.031988245, -1.6735849, 0.3890381, -10.350937)
+
+[node name="f1-blue5" parent="." unique_id=2051673468 instance=ExtResource("4_xauj5")]
+transform = Transform3D(0.07936547, 0, 0.9968457, 0, 1, 0, -0.9968457, 0, 0.07936547, 8.964583, 0.3890381, 49.93194)
+
+[node name="f1-blue2" parent="." unique_id=499989118 instance=ExtResource("4_xauj5")]
+transform = Transform3D(0.9997811, 0, -0.020927694, 0, 1, 0, 0.020927694, 0, 0.9997811, -50.01013, 0.28302002, 4.1265554)
 
 [node name="f1-pink" parent="." unique_id=947571166 instance=ExtResource("3_qrk37")]
-transform = Transform3D(1.8, 0, 0, 0, 1.8, 0, 0, 0, 1.8, -35.706924, 0, 4.0708942)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -35.706924, 0.28295898, 4.0708942)
+
+[node name="f1-pink3" parent="." unique_id=1645657275 instance=ExtResource("3_qrk37")]
+transform = Transform3D(0.033172697, 0, -0.9994497, 0, 1, 0, 0.9994497, 0, 0.033172697, -2.59066, 0.31835938, -60.388733)
+
+[node name="f1-pink4" parent="." unique_id=1510545995 instance=ExtResource("3_qrk37")]
+transform = Transform3D(0.029828351, 0, 0.999555, 0, 1, 0, -0.999555, 0, 0.029828351, 9.567223, 0.44891357, 34.416275)
+
+[node name="f1-pink2" parent="." unique_id=1526516103 instance=ExtResource("3_qrk37")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 56.478256, 0, 4.0708942)
 
 [node name="gtr" parent="." unique_id=337143250 instance=ExtResource("1_p2d6a")]
-transform = Transform3D(-3.999816, 0, -0.03838229, 0, 4, 0, 0.03838229, 0, -3.999816, 45.66648, 0.7141266, -5.4542675)
+transform = Transform3D(-2.499885, 0, -0.02398909, 0, 2.5, 0, 0.02398909, 0, -2.499885, 35.92192, 0.20109558, -5.4542675)
+
+[node name="gtr2" parent="." unique_id=164453632 instance=ExtResource("1_p2d6a")]
+transform = Transform3D(0.0896216, 0, -2.4983933, 0, 2.4999998, 0, 2.4983933, 0, 0.0896216, -1.2996826, 0.7141266, -30.223043)
+
+[node name="gtr3" parent="." unique_id=130258561 instance=ExtResource("1_p2d6a")]
+transform = Transform3D(0.0896216, 0, -2.4983933, 0, 2.4999998, 0, 2.4983933, 0, 0.0896216, -1.2996826, 0.7141266, 54.99591)
 
 [node name="camera feed 1" type="PanelContainer" parent="." unique_id=1940452142]
 offset_left = 12.0
@@ -104,7 +135,8 @@ layout_mode = 2
 
 [node name="Label" type="Label" parent="camera feed 1/MarginContainer/VBoxContainer" unique_id=943323732]
 layout_mode = 2
-text = " DIGITAL  TWIN                                 VIEW 1                                                                                                          ... "
+theme_override_fonts/font = ExtResource("8_w7lpe")
+text = "SIMULATION                            VIEW 1                                                                                                          ... "
 
 [node name="Sprite2D" type="Sprite2D" parent="camera feed 1/MarginContainer/VBoxContainer" unique_id=1212671325]
 position = Vector2(380, 159)
@@ -117,7 +149,7 @@ region_rect = Rect2(0, 197.2099, 748.89, 315.7901)
 size = Vector2i(750, 513)
 
 [node name="Camera3D" type="Camera3D" parent="camera feed 1/MarginContainer/VBoxContainer/Sprite2D/SubViewport" unique_id=1938082620]
-transform = Transform3D(0.6931329, 0, 0.72080994, 0, 1, 0, -0.72080994, 0, 0.6931329, 25.458363, 10.363351, 24.371834)
+transform = Transform3D(0.792672, 0, 0.6096486, 0, 1, 0, -0.6096486, 0, 0.792672, 20.228687, 10.363351, 27.76612)
 fov = 54.2
 near = 0.022
 
@@ -155,7 +187,8 @@ near = 0.022
 
 [node name="Label2" type="Label" parent="camera feed  2/MarginContainer2/VBoxContainer" unique_id=664662794]
 layout_mode = 2
-text = " DIGITAL  TWIN                                 VIEW  2                                                                                                         ... "
+theme_override_fonts/font = ExtResource("8_w7lpe")
+text = "SIMULATION                           VIEW  2                                                                                                         ... "
 
 [node name="top view" type="PanelContainer" parent="." unique_id=1311231228]
 offset_left = 793.0
@@ -163,11 +196,6 @@ offset_top = 9.0
 offset_right = 1142.0
 offset_bottom = 310.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_5yqap")
-
-[node name="VBoxContainer" type="VBoxContainer" parent="top view" unique_id=802825902]
-layout_mode = 2
-offset_transform_position = Vector2(-0.035, 0)
-alignment = 2
 
 [node name="1000066146" type="Sprite2D" parent="top view" unique_id=1895319795]
 position = Vector2(119, 202)
@@ -191,29 +219,12 @@ rotation = 3.1415925
 scale = Vector2(0.009073043, 0.009070317)
 texture = ExtResource("8_rbl70")
 
-[node name="1000066136" type="Sprite2D" parent="top view" unique_id=446155559]
-position = Vector2(152.00002, 77)
-rotation = 1.5445099
-scale = Vector2(0.05316664, 0.05869408)
-texture = ExtResource("9_qqfow")
-
-[node name="1000066137" type="Sprite2D" parent="top view" unique_id=807265537]
-position = Vector2(190.00002, 249.99998)
-rotation = -1.5897912
-scale = Vector2(0.05794897, 0.060201988)
-texture = ExtResource("9_qqfow")
-
-[node name="1000066138" type="Sprite2D" parent="top view" unique_id=376329362]
-position = Vector2(289, 152)
-rotation = 3.137549
-scale = Vector2(0.05890009, 0.054484725)
-texture = ExtResource("9_qqfow")
-
 [node name="Label2" type="Label" parent="." unique_id=1339995147]
 offset_left = 801.0
 offset_top = 13.0
 offset_right = 1148.0
 offset_bottom = 36.0
+theme_override_fonts/font = ExtResource("8_w7lpe")
 text = "INTERSECTION OVERVIEW"
 vertical_alignment = 3
 
@@ -231,13 +242,6 @@ offset_right = 1114.0
 offset_bottom = 467.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_rbl70")
 
-[node name="PanelContainer6" type="PanelContainer" parent="." unique_id=176014841]
-offset_left = 824.0
-offset_top = 480.0
-offset_right = 1113.0
-offset_bottom = 592.0
-theme_override_styles/panel = SubResource("StyleBoxFlat_rbl70")
-
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=827393100]
 transform = Transform3D(1, 0, 0, 0, 0.07323446, 0.99731475, 0, -0.99731475, 0.07323446, -5.163086, 51.636536, -23.635849)
 layers = 511
@@ -249,11 +253,12 @@ light_angular_distance = 54.51
 [node name="HTTPRequest" type="HTTPRequest" parent="." unique_id=1588866752]
 
 [node name="Label" type="Label" parent="." unique_id=1079314699]
-offset_left = 37.0
-offset_right = 77.0
-offset_bottom = 23.0
-theme_override_fonts/font = ExtResource("8_w7lpe")
-theme_override_font_sizes/font_size = 18
+offset_left = 38.0
+offset_top = 5.0
+offset_right = 210.0
+offset_bottom = 28.0
+theme_override_fonts/font = ExtResource("11_t7sun")
+theme_override_font_sizes/font_size = 16
 text = "ProtoK - Simulacija"
 label_settings = SubResource("LabelSettings_tx3dh")
 
@@ -262,39 +267,27 @@ offset_left = 802.0
 offset_top = 326.0
 offset_right = 1045.0
 offset_bottom = 349.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("8_w7lpe")
 text = "TRAFFIC CONTROL & ANALITICS"
 
 [node name="Label" type="Label" parent="Label3" unique_id=783798056]
 layout_mode = 0
-offset_left = 32.0
-offset_top = 38.0
-offset_right = 151.0
-offset_bottom = 61.0
+offset_left = 35.0
+offset_top = 44.0
+offset_right = 163.0
+offset_bottom = 67.0
+theme_override_fonts/font = ExtResource("11_t7sun")
 text = "LANE 1 COUNT:"
 
 [node name="Label2" type="Label" parent="Label3" unique_id=1588183650]
 layout_mode = 0
-offset_left = 172.0
-offset_top = 38.0
-offset_right = 291.0
-offset_bottom = 61.0
-text = "LANE 3 COUNT:"
-
-[node name="Label3" type="Label" parent="Label3" unique_id=235707723]
-layout_mode = 0
-offset_left = 30.0
-offset_top = 165.0
-offset_right = 149.0
-offset_bottom = 188.0
+offset_left = 175.0
+offset_top = 44.0
+offset_right = 305.0
+offset_bottom = 67.0
+theme_override_fonts/font = ExtResource("11_t7sun")
 text = "LANE 2 COUNT:"
-
-[node name="Label9" type="Label" parent="Label3" unique_id=2097772532]
-layout_mode = 0
-offset_left = 28.0
-offset_top = 223.0
-offset_right = 147.0
-offset_bottom = 246.0
-text = "PRESSURE:  LIGHT COSGESTION"
 
 [node name="Label10" type="Label" parent="Label3" unique_id=1789141266]
 layout_mode = 0
@@ -302,53 +295,26 @@ offset_left = 33.0
 offset_top = 99.0
 offset_right = 274.0
 offset_bottom = 122.0
-text = "PRESSURE:  LIGHT COSGESTION"
-
-[node name="Label4" type="Label" parent="Label3" unique_id=108359258]
-layout_mode = 0
-offset_left = 176.0
-offset_top = 165.0
-offset_right = 295.0
-offset_bottom = 188.0
-text = "LANE 4 COUNT:"
+theme_override_fonts/font = ExtResource("8_w7lpe")
+text = "PRESSURE:  LIGHT CONGESTION"
 
 [node name="Label5" type="Label" parent="Label3" unique_id=21772844]
 layout_mode = 0
-offset_left = 57.0
-offset_top = 62.0
-offset_right = 121.0
-offset_bottom = 85.0
-text = "1 CAR(S)"
+offset_left = 63.0
+offset_top = 65.0
+offset_right = 127.0
+offset_bottom = 88.0
+theme_override_fonts/font = ExtResource("8_w7lpe")
+text = "3 CAR(S)"
 
-[node name="Label6" type="Label" parent="Label3" unique_id=1381812425]
+[node name="Label6" type="Label" parent="Label3" unique_id=1361074191]
 layout_mode = 0
-offset_left = 198.0
-offset_top = 62.0
-offset_right = 262.0
-offset_bottom = 85.0
-text = "1 CAR(S)"
-
-[node name="Label7" type="Label" parent="Label3" unique_id=599443255]
-layout_mode = 0
-offset_left = 59.0
-offset_top = 189.0
-offset_right = 123.0
-offset_bottom = 212.0
-text = "1 CAR(S)"
-
-[node name="Label8" type="Label" parent="Label3" unique_id=1832195396]
-layout_mode = 0
-offset_left = 198.0
-offset_top = 189.0
-offset_right = 262.0
-offset_bottom = 212.0
-text = "1 CAR(S)"
-
-[node name="HSlider" type="HSlider" parent="." unique_id=330208572]
-offset_left = 834.0
-offset_top = 571.0
-offset_right = 1104.0
-offset_bottom = 587.0
+offset_left = 209.0
+offset_top = 65.0
+offset_right = 273.0
+offset_bottom = 88.0
+theme_override_fonts/font = ExtResource("8_w7lpe")
+text = "2 CAR(S)"
 
 [node name="HSlider2" type="HSlider" parent="." unique_id=1006895402]
 offset_left = 833.0
@@ -356,7 +322,124 @@ offset_top = 447.0
 offset_right = 1103.0
 offset_bottom = 463.0
 
+[node name="PanelContainer6" type="PanelContainer" parent="." unique_id=1381638559]
+offset_left = 826.0
+offset_top = 489.0
+offset_right = 1115.0
+offset_bottom = 601.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_rbl70")
+
+[node name="HSlider3" type="HSlider" parent="." unique_id=1789643600]
+offset_left = 834.0
+offset_top = 581.0
+offset_right = 1104.0
+offset_bottom = 597.0
+
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1386766688]
 position = Vector2(969, 183.00002)
 scale = Vector2(0.11263023, 0.07666016)
 texture = ExtResource("9_rbl70")
+
+[node name="Label4" type="Label" parent="." unique_id=1414811601]
+offset_left = 838.0
+offset_top = 504.0
+offset_right = 966.0
+offset_bottom = 527.0
+theme_override_fonts/font = ExtResource("11_t7sun")
+text = "LANE 3 COUNT:"
+
+[node name="Label5" type="Label" parent="." unique_id=2058315065]
+offset_left = 978.0
+offset_top = 504.0
+offset_right = 1108.0
+offset_bottom = 527.0
+theme_override_fonts/font = ExtResource("11_t7sun")
+text = "LANE 4 COUNT:"
+
+[node name="Label11" type="Label" parent="." unique_id=810755214]
+offset_left = 836.0
+offset_top = 559.0
+offset_right = 1077.0
+offset_bottom = 582.0
+theme_override_fonts/font = ExtResource("8_w7lpe")
+text = "PRESSURE:  NO CONGESTION"
+
+[node name="Label7" type="Label" parent="." unique_id=366904051]
+offset_left = 866.0
+offset_top = 525.0
+offset_right = 930.0
+offset_bottom = 548.0
+theme_override_fonts/font = ExtResource("8_w7lpe")
+text = "1 CAR(S)"
+
+[node name="Label8" type="Label" parent="." unique_id=1165735562]
+offset_left = 1012.0
+offset_top = 525.0
+offset_right = 1076.0
+offset_bottom = 548.0
+theme_override_fonts/font = ExtResource("8_w7lpe")
+text = "2 CAR(S)"
+
+[node name="Sprite2D2" type="Sprite2D" parent="." unique_id=615764512]
+position = Vector2(945, 99)
+scale = Vector2(0.29687762, 0.28124997)
+texture = ExtResource("12_t7sun")
+
+[node name="Sprite2D5" type="Sprite2D" parent="." unique_id=2138441396]
+position = Vector2(858.99994, 186)
+scale = Vector2(0.29687762, 0.28124997)
+texture = ExtResource("12_t7sun")
+
+[node name="Sprite2D6" type="Sprite2D" parent="." unique_id=1680885724]
+position = Vector2(848, 186)
+scale = Vector2(0.29687762, 0.28124997)
+texture = ExtResource("12_t7sun")
+
+[node name="Sprite2D7" type="Sprite2D" parent="." unique_id=671958544]
+position = Vector2(1069, 161)
+scale = Vector2(0.29687762, 0.28124997)
+texture = ExtResource("12_t7sun")
+
+[node name="Sprite2D8" type="Sprite2D" parent="." unique_id=2142134109]
+position = Vector2(983, 247)
+scale = Vector2(0.29687762, 0.28124997)
+texture = ExtResource("12_t7sun")
+
+[node name="Sprite2D9" type="Sprite2D" parent="." unique_id=1502806630]
+position = Vector2(983, 257)
+scale = Vector2(0.29687762, 0.28124997)
+texture = ExtResource("12_t7sun")
+
+[node name="Sprite2D3" type="Sprite2D" parent="." unique_id=1038532836]
+position = Vector2(944.99994, 89.00001)
+scale = Vector2(0.29687762, 0.28124997)
+texture = ExtResource("12_t7sun")
+
+[node name="Sprite2D4" type="Sprite2D" parent="." unique_id=1407784318]
+position = Vector2(945, 79)
+scale = Vector2(0.29687762, 0.28124997)
+texture = ExtResource("12_t7sun")
+
+[node name="TTd" parent="." unique_id=1512417193 instance=ExtResource("13_gik3a")]
+transform = Transform3D(0.99999994, 0, 0.0003102322, 0, 1, 0, -0.0003102322, 0, 0.99999994, 18.994427, 3.22678, -14.124352)
+
+[node name="TTd7" parent="." unique_id=811194574 instance=ExtResource("13_gik3a")]
+transform = Transform3D(1.5000001, 0, 0.00046534842, -2.584029e-06, -1.499977, 0.008329337, 0.0004653412, -0.008329337, -1.499977, 18.994427, 3.5467224, -14.124352)
+
+[node name="TTd2" parent="." unique_id=504636230 instance=ExtResource("13_gik3a")]
+transform = Transform3D(-0.9999569, 0, -0.009280699, 0, 1, 0, 0.009280699, 0, -0.9999569, -9.881504, 3.3229265, 12.213412)
+
+[node name="TTd6" parent="." unique_id=1854026171 instance=ExtResource("13_gik3a")]
+transform = Transform3D(-1.4999356, 0, -0.01392103, -0.00056609185, -1.4987594, 0.060994152, -0.013909515, 0.060996775, 1.498695, -9.881504, 6.6823273, 12.090457)
+
+[node name="TTd3" parent="." unique_id=1396485683 instance=ExtResource("13_gik3a")]
+transform = Transform3D(-0.008004147, 0, -0.999968, 0, 1, 0, 0.999968, 0, -0.008004147, 19.253452, 3.167985, 12.310317)
+
+[node name="TTd8" parent="." unique_id=1349860704 instance=ExtResource("13_gik3a")]
+transform = Transform3D(-0.012006242, 0, -1.4999522, 0.007320965, -1.4999824, -5.8600053e-05, -1.4999343, -0.0073211985, 0.012006098, 19.253452, 4.5277405, 12.310317)
+
+[node name="TTd4" parent="." unique_id=1748357186 instance=ExtResource("13_gik3a")]
+transform = Transform3D(0.0065909903, 0, 0.9999783, 0, 1, 0, -0.9999783, 0, 0.0065909903, -10.969746, 3.0951385, -12.792271)
+
+[node name="TTd5" parent="." unique_id=1876561816 instance=ExtResource("13_gik3a")]
+transform = Transform3D(0.009886507, 0, 1.4999676, 0.020716053, -1.4998574, -0.00013654254, 1.4998245, 0.020716501, -0.009885564, -10.969746, 4.454895, -12.792271)
