@@ -1,86 +1,362 @@
 [gd_scene format=3 uid="uid://c7l64xnlrol55"]
 
 [ext_resource type="PackedScene" uid="uid://b70aquem0vpfy" path="res://3D models/gtr.glb" id="1_p2d6a"]
+[ext_resource type="Texture2D" uid="uid://bpfniucnd620p" path="res://3D models/1000066158.jpg" id="1_yhn40"]
 [ext_resource type="PackedScene" uid="uid://ceuoi8i1j473b" path="res://3D models/road.glb" id="2_0mcfx"]
+[ext_resource type="Texture2D" uid="uid://c5rt0upol0102" path="res://3D models/1000066157.jpg" id="2_t7sun"]
 [ext_resource type="PackedScene" uid="uid://cbqmdtagdhuss" path="res://3D models/f1-pink.glb" id="3_qrk37"]
 [ext_resource type="PackedScene" uid="uid://cqonpe4ga0aeg" path="res://3D models/f1-blue.glb" id="4_xauj5"]
-[ext_resource type="Script" uid="uid://dm782157woc0q" path="res://3D models/car.gd" id="5_qrk37"]
+[ext_resource type="Texture2D" uid="uid://crdm4kcpcqg70" path="res://3D models/1000066145.png" id="7_w7lpe"]
+[ext_resource type="Texture2D" uid="uid://c3372fflx13sd" path="res://3D models/1000066146.png" id="8_rbl70"]
+[ext_resource type="FontFile" uid="uid://shww7qk3p2dn" path="res://3D models/Satoshi-Regular.otf" id="8_w7lpe"]
+[ext_resource type="Texture2D" uid="uid://vmcegm5vblvn" path="res://3D models/1000066136.png" id="9_qqfow"]
+[ext_resource type="Texture2D" uid="uid://ronh4wtoxn5v" path="res://3D models/1000066153.png" id="9_rbl70"]
 
-[sub_resource type="GDScript" id="GDScript_oqynk"]
-script/source = "extends Node3D
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5yqap"]
+bg_color = Color(0.1254902, 0.15294118, 0.18431373, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+corner_detail = 6
+shadow_color = Color(0, 0, 0, 0.91764706)
+shadow_size = 2
 
-@export var car_scene: PackedScene # Drag your Car.tscn here in the Inspector
-@export var spawn_interval: float = 1.5 # Time in seconds between spawns
-@export var speed_variation: float = 2.0
+[sub_resource type="ViewportTexture" id="ViewportTexture_5yqap"]
+viewport_path = NodePath("camera feed 1/MarginContainer/VBoxContainer/Sprite2D/SubViewport")
 
-var timer: float = 0.0
+[sub_resource type="ViewportTexture" id="ViewportTexture_0smys"]
+viewport_path = NodePath("camera feed  2/MarginContainer2/VBoxContainer/Sprite2D/SubViewport1")
 
-func _process(delta: float):
-	timer += delta
-	if timer >= spawn_interval:
-		timer = 0.0
-		spawn_car()
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rbl70"]
+bg_color = Color(0.15686275, 0.18431373, 0.21568628, 1)
 
-func spawn_car():
-	if not car_scene:
-		print(\"Error: Car scene not assigned in spawner!\")
-		return
-		
-	var car = car_scene.instantiate()
-	
-	# Spawn at the spawner's position (with a tiny random offset across the lane)
-	var random_offset_x = randf_range(-0.5, 0.5)
-	car.position = global_position + Vector3(random_offset_x, 0, 0)
-	
-	# Optional: randomize individual car speeds slightly
-	if \"speed\" in car:
-		car.speed += randf_range(-speed_variation, speed_variation)
-		
-	# Add the car to the main scene tree
-	get_tree().current_scene.add_child(car)
-"
+[sub_resource type="LabelSettings" id="LabelSettings_tx3dh"]
 
-[node name="Node3D" type="Node3D" unique_id=470058476]
-transform = Transform3D(1, 0, 0, 0, 1, 1.7484555e-07, 0, -1.7484555e-07, 1, 0, 0, 0)
+[node name="Node2D" type="Node2D" unique_id=1021663208]
+metadata/_edit_horizontal_guides_ = [-2053.0]
 
-[node name="gtr" parent="." unique_id=337143250 instance=ExtResource("1_p2d6a")]
-transform = Transform3D(4.1, 0, 0, 0, 4.1, 0, 0, 0, 4.1, -40.330627, 0.047816873, -21.059422)
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1672826020]
+offset_left = -3.0
+offset_top = -3.0
+offset_right = 1154.0
+offset_bottom = 648.0
+color = Color(0.078431375, 0.09803922, 0.12156863, 1)
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=619318449]
+offset_left = 18.0
+offset_top = 57.0
+offset_right = 781.0
+offset_bottom = 57.0
+texture = ExtResource("1_yhn40")
+expand_mode = 1
+
+[node name="Sprite3D" type="Sprite3D" parent="TextureRect" unique_id=717277028]
+transform = Transform3D(-0.83546257, 0, -0.5495473, 0, 1, 0, 0.5495473, 0, -0.83546257, -96.03461, 24.597534, -57.59308)
+pixel_size = 0.1
+texture = ExtResource("2_t7sun")
+
+[node name="Sprite3D2" type="Sprite3D" parent="TextureRect" unique_id=290452903]
+transform = Transform3D(-0.83546257, 0, -0.5495473, 0, 1, 0, 0.5495473, 0, -0.83546257, 49.17868, 24.597534, 91.32413)
+pixel_size = 0.1
+texture = ExtResource("1_yhn40")
+
+[node name="Node3D" type="Node3D" parent="." unique_id=2004305180]
 
 [node name="road" parent="." unique_id=519333134 instance=ExtResource("2_0mcfx")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.2274914, -0.34749734, -3.9240932)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.897192, -0.08806515, 9.532272)
 
-[node name="f1-pink" parent="." unique_id=947571166 instance=ExtResource("3_qrk37")]
-transform = Transform3D(0.021989632, 0, 1.5998489, 0, 1.6, 0, -1.5998489, 0, 0.021989632, 2.001092, 1.1920929e-07, -52.79489)
+[node name="road2" parent="." unique_id=1938805929 instance=ExtResource("2_0mcfx")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.545309, -1.389945, 8.810059)
+
+[node name="road3" parent="." unique_id=2092196087 instance=ExtResource("2_0mcfx")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.1238804, -1.7153234, 7.304161)
 
 [node name="f1-blue" parent="." unique_id=1351360830 instance=ExtResource("4_xauj5")]
-transform = Transform3D(1.6, 0, 0, 0, 1.6, 0, 0, 0, 1.6, 39.80668, 0, -14.942368)
+transform = Transform3D(0.057578832, 0, -1.799079, 0, 1.8000002, 0, 1.799079, 0, 0.057578832, -1.6735849, 0, -44.561954)
 
-[node name="XRCamera3D" type="XRCamera3D" parent="." unique_id=485089829]
-transform = Transform3D(-0.54773855, -0.1298876, 0.8265057, -0.026904127, 0.9900992, 0.13776697, -0.83621687, 0.053223863, -0.54581004, 27.301903, 22.162983, -32.370068)
+[node name="f1-pink" parent="." unique_id=947571166 instance=ExtResource("3_qrk37")]
+transform = Transform3D(1.8, 0, 0, 0, 1.8, 0, 0, 0, 1.8, -35.706924, 0, 4.0708942)
 
-[node name="XRCamera3D2" type="XRCamera3D" parent="." unique_id=1133324452]
-transform = Transform3D(0.4857241, 0.13340186, -0.86387277, -0.026904147, 0.9900993, 0.13776693, 0.87369806, -0.043674953, 0.48450413, -16.390865, 22.162983, 1.8721333)
+[node name="gtr" parent="." unique_id=337143250 instance=ExtResource("1_p2d6a")]
+transform = Transform3D(-3.999816, 0, -0.03838229, 0, 4, 0, 0.03838229, 0, -3.999816, 45.66648, 0.7141266, -5.4542675)
 
-[node name="road2" parent="." unique_id=143303935 instance=ExtResource("2_0mcfx")]
-transform = Transform3D(1.0139393, 0, 0, 0, 1, 0, 0, 0, 1, -8.709488, -0.5948286, -5.018627)
-script = ExtResource("5_qrk37")
+[node name="camera feed 1" type="PanelContainer" parent="." unique_id=1940452142]
+offset_left = 12.0
+offset_top = 24.0
+offset_right = 783.0
+offset_bottom = 325.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_5yqap")
 
-[node name="road3" parent="." unique_id=1661383674 instance=ExtResource("2_0mcfx")]
-transform = Transform3D(1.0139393, 0, 0, 0, 1, 0, 0, 0, 1, 19.071499, -0.5948286, -3.8425274)
+[node name="MarginContainer" type="MarginContainer" parent="camera feed 1" unique_id=1246785711]
+layout_mode = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
 
-[node name="TrafficSpawner" type="Node3D" parent="." unique_id=2081246649]
-transform = Transform3D(-1.2501098, 0, 3.9047687, 5.684342e-14, 4.099999, -1.4210855e-14, -3.9047687, -5.684342e-14, -1.2501098, -64.12804, 0.047815118, -11.020882)
-script = SubResource("GDScript_oqynk")
-car_scene = ExtResource("4_xauj5")
+[node name="VBoxContainer" type="VBoxContainer" parent="camera feed 1/MarginContainer" unique_id=1145198838]
+layout_mode = 2
 
-[node name="TrafficSpawner2" type="Node3D" parent="." unique_id=1368490628]
-transform = Transform3D(-1.2501098, 0, 3.9047687, 5.684342e-14, 4.099999, -1.4210855e-14, -3.9047687, -5.684342e-14, -1.2501098, 74.57652, 0.047816873, -21.059422)
-script = SubResource("GDScript_oqynk")
+[node name="Label" type="Label" parent="camera feed 1/MarginContainer/VBoxContainer" unique_id=943323732]
+layout_mode = 2
+text = " DIGITAL  TWIN                                 VIEW 1                                                                                                          ... "
 
-[node name="TrafficSpawner3" type="Node3D" parent="." unique_id=1493925507]
-transform = Transform3D(-1.2501098, 0, 3.9047687, 5.684342e-14, 4.099999, -1.4210855e-14, -3.9047687, -5.684342e-14, -1.2501098, 1.5183029, 0.04782819, -85.77072)
-script = SubResource("GDScript_oqynk")
+[node name="Sprite2D" type="Sprite2D" parent="camera feed 1/MarginContainer/VBoxContainer" unique_id=1212671325]
+position = Vector2(380, 159)
+scale = Vector2(1.025401, 0.8454811)
+texture = SubResource("ViewportTexture_5yqap")
+region_enabled = true
+region_rect = Rect2(0, 197.2099, 748.89, 315.7901)
 
-[node name="TrafficSpawner4" type="Node3D" parent="." unique_id=1766217512]
-transform = Transform3D(-1.2501098, 0, 3.9047687, 5.684342e-14, 4.099999, -1.4210855e-14, -3.9047687, -5.684342e-14, -1.2501098, 12.868124, 0.047802564, 60.7778)
-script = SubResource("GDScript_oqynk")
+[node name="SubViewport" type="SubViewport" parent="camera feed 1/MarginContainer/VBoxContainer/Sprite2D" unique_id=799890821]
+size = Vector2i(750, 513)
+
+[node name="Camera3D" type="Camera3D" parent="camera feed 1/MarginContainer/VBoxContainer/Sprite2D/SubViewport" unique_id=1938082620]
+transform = Transform3D(0.6931329, 0, 0.72080994, 0, 1, 0, -0.72080994, 0, 0.6931329, 25.458363, 10.363351, 24.371834)
+fov = 54.2
+near = 0.022
+
+[node name="camera feed  2" type="PanelContainer" parent="." unique_id=629901347]
+offset_left = 12.0
+offset_top = 336.0
+offset_right = 783.0
+offset_bottom = 637.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_5yqap")
+
+[node name="MarginContainer2" type="MarginContainer" parent="camera feed  2" unique_id=190063121]
+layout_mode = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="VBoxContainer" type="VBoxContainer" parent="camera feed  2/MarginContainer2" unique_id=1153194352]
+layout_mode = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="camera feed  2/MarginContainer2/VBoxContainer" unique_id=524118032]
+position = Vector2(380, 159)
+scale = Vector2(1.025401, 0.8454811)
+texture = SubResource("ViewportTexture_0smys")
+region_enabled = true
+region_rect = Rect2(0, 197.2099, 748.89, 315.7901)
+
+[node name="SubViewport1" type="SubViewport" parent="camera feed  2/MarginContainer2/VBoxContainer/Sprite2D" unique_id=1111028915]
+size = Vector2i(750, 513)
+
+[node name="Camera3D2" type="Camera3D" parent="camera feed  2/MarginContainer2/VBoxContainer/Sprite2D/SubViewport1" unique_id=1626444157]
+transform = Transform3D(-0.8121634, 0, -0.5834301, 0, 1, 0, 0.5834301, 0, -0.8121634, -13.866329, 10.363351, -37.609)
+fov = 54.2
+near = 0.022
+
+[node name="Label2" type="Label" parent="camera feed  2/MarginContainer2/VBoxContainer" unique_id=664662794]
+layout_mode = 2
+text = " DIGITAL  TWIN                                 VIEW  2                                                                                                         ... "
+
+[node name="top view" type="PanelContainer" parent="." unique_id=1311231228]
+offset_left = 793.0
+offset_top = 9.0
+offset_right = 1142.0
+offset_bottom = 310.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_5yqap")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="top view" unique_id=802825902]
+layout_mode = 2
+offset_transform_position = Vector2(-0.035, 0)
+alignment = 2
+
+[node name="1000066146" type="Sprite2D" parent="top view" unique_id=1895319795]
+position = Vector2(119, 202)
+rotation = 3.1415925
+scale = Vector2(0.00884189, 0.009637184)
+texture = ExtResource("7_w7lpe")
+
+[node name="1000066147" type="Sprite2D" parent="top view" unique_id=671370139]
+position = Vector2(119, 125.00001)
+scale = Vector2(0.009073043, 0.009070317)
+texture = ExtResource("8_rbl70")
+
+[node name="1000066145" type="Sprite2D" parent="top view" unique_id=240044469]
+position = Vector2(224.21875, 127)
+scale = Vector2(0.009968778, 0.009637184)
+texture = ExtResource("7_w7lpe")
+
+[node name="1000066148" type="Sprite2D" parent="top view" unique_id=1476858146]
+position = Vector2(220, 204)
+rotation = 3.1415925
+scale = Vector2(0.009073043, 0.009070317)
+texture = ExtResource("8_rbl70")
+
+[node name="1000066136" type="Sprite2D" parent="top view" unique_id=446155559]
+position = Vector2(152.00002, 77)
+rotation = 1.5445099
+scale = Vector2(0.05316664, 0.05869408)
+texture = ExtResource("9_qqfow")
+
+[node name="1000066137" type="Sprite2D" parent="top view" unique_id=807265537]
+position = Vector2(190.00002, 249.99998)
+rotation = -1.5897912
+scale = Vector2(0.05794897, 0.060201988)
+texture = ExtResource("9_qqfow")
+
+[node name="1000066138" type="Sprite2D" parent="top view" unique_id=376329362]
+position = Vector2(289, 152)
+rotation = 3.137549
+scale = Vector2(0.05890009, 0.054484725)
+texture = ExtResource("9_qqfow")
+
+[node name="Label2" type="Label" parent="." unique_id=1339995147]
+offset_left = 801.0
+offset_top = 13.0
+offset_right = 1148.0
+offset_bottom = 36.0
+text = "INTERSECTION OVERVIEW"
+vertical_alignment = 3
+
+[node name="trafic control" type="PanelContainer" parent="." unique_id=129135544]
+offset_left = 791.0
+offset_top = 319.0
+offset_right = 1140.0
+offset_bottom = 639.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_5yqap")
+
+[node name="PanelContainer5" type="PanelContainer" parent="." unique_id=1382011703]
+offset_left = 825.0
+offset_top = 355.0
+offset_right = 1114.0
+offset_bottom = 467.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_rbl70")
+
+[node name="PanelContainer6" type="PanelContainer" parent="." unique_id=176014841]
+offset_left = 824.0
+offset_top = 480.0
+offset_right = 1113.0
+offset_bottom = 592.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_rbl70")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=827393100]
+transform = Transform3D(1, 0, 0, 0, 0.07323446, 0.99731475, 0, -0.99731475, 0.07323446, -5.163086, 51.636536, -23.635849)
+layers = 511
+light_energy = 0.55
+light_indirect_energy = 10.24
+light_volumetric_fog_energy = 7.535
+light_angular_distance = 54.51
+
+[node name="HTTPRequest" type="HTTPRequest" parent="." unique_id=1588866752]
+
+[node name="Label" type="Label" parent="." unique_id=1079314699]
+offset_left = 37.0
+offset_right = 77.0
+offset_bottom = 23.0
+theme_override_fonts/font = ExtResource("8_w7lpe")
+theme_override_font_sizes/font_size = 18
+text = "ProtoK - Simulacija"
+label_settings = SubResource("LabelSettings_tx3dh")
+
+[node name="Label3" type="Label" parent="." unique_id=1646840887]
+offset_left = 802.0
+offset_top = 326.0
+offset_right = 1045.0
+offset_bottom = 349.0
+text = "TRAFFIC CONTROL & ANALITICS"
+
+[node name="Label" type="Label" parent="Label3" unique_id=783798056]
+layout_mode = 0
+offset_left = 32.0
+offset_top = 38.0
+offset_right = 151.0
+offset_bottom = 61.0
+text = "LANE 1 COUNT:"
+
+[node name="Label2" type="Label" parent="Label3" unique_id=1588183650]
+layout_mode = 0
+offset_left = 172.0
+offset_top = 38.0
+offset_right = 291.0
+offset_bottom = 61.0
+text = "LANE 3 COUNT:"
+
+[node name="Label3" type="Label" parent="Label3" unique_id=235707723]
+layout_mode = 0
+offset_left = 30.0
+offset_top = 165.0
+offset_right = 149.0
+offset_bottom = 188.0
+text = "LANE 2 COUNT:"
+
+[node name="Label9" type="Label" parent="Label3" unique_id=2097772532]
+layout_mode = 0
+offset_left = 28.0
+offset_top = 223.0
+offset_right = 147.0
+offset_bottom = 246.0
+text = "PRESSURE:  LIGHT COSGESTION"
+
+[node name="Label10" type="Label" parent="Label3" unique_id=1789141266]
+layout_mode = 0
+offset_left = 33.0
+offset_top = 99.0
+offset_right = 274.0
+offset_bottom = 122.0
+text = "PRESSURE:  LIGHT COSGESTION"
+
+[node name="Label4" type="Label" parent="Label3" unique_id=108359258]
+layout_mode = 0
+offset_left = 176.0
+offset_top = 165.0
+offset_right = 295.0
+offset_bottom = 188.0
+text = "LANE 4 COUNT:"
+
+[node name="Label5" type="Label" parent="Label3" unique_id=21772844]
+layout_mode = 0
+offset_left = 57.0
+offset_top = 62.0
+offset_right = 121.0
+offset_bottom = 85.0
+text = "1 CAR(S)"
+
+[node name="Label6" type="Label" parent="Label3" unique_id=1381812425]
+layout_mode = 0
+offset_left = 198.0
+offset_top = 62.0
+offset_right = 262.0
+offset_bottom = 85.0
+text = "1 CAR(S)"
+
+[node name="Label7" type="Label" parent="Label3" unique_id=599443255]
+layout_mode = 0
+offset_left = 59.0
+offset_top = 189.0
+offset_right = 123.0
+offset_bottom = 212.0
+text = "1 CAR(S)"
+
+[node name="Label8" type="Label" parent="Label3" unique_id=1832195396]
+layout_mode = 0
+offset_left = 198.0
+offset_top = 189.0
+offset_right = 262.0
+offset_bottom = 212.0
+text = "1 CAR(S)"
+
+[node name="HSlider" type="HSlider" parent="." unique_id=330208572]
+offset_left = 834.0
+offset_top = 571.0
+offset_right = 1104.0
+offset_bottom = 587.0
+
+[node name="HSlider2" type="HSlider" parent="." unique_id=1006895402]
+offset_left = 833.0
+offset_top = 447.0
+offset_right = 1103.0
+offset_bottom = 463.0
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1386766688]
+position = Vector2(969, 183.00002)
+scale = Vector2(0.11263023, 0.07666016)
+texture = ExtResource("9_rbl70")
